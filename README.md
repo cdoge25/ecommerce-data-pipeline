@@ -1,14 +1,15 @@
 # Brazil-Ecommerce
-## 1. Sales Overview
+## 1. Overview
+### 1.1. Sales Overview
 ![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/1.png)
 - The total sales, total orders are 13,59 million R$ and 99 thousand orders respectively, and have increased significantly since 2017, with the highest sales in 11/2017.
 - The average order value is 137,75 R$.
 - The cancellation rate is only 0,47%, which is a positive sign.
 - The best selling products of all time are health and beauty products.
-
+### 1.2. Highest Sales Date
 ![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/2.png)
 Drilling into 11/2017, it was obvious why this month yielded the greatest sales. Black Friday was the 24th of the month, orders and sales exploded during this day.
-
+### 1.3. Customer Segmentation
 ![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/3.png)
 Customers are divided into 4 segments by using the RFM metrics. However, the datasets that were provided only consist of customers that either have made a purchase once or have never purchased anything, the F (Frequency) metric is therefore left out.
 - 52 Customers are then segmented by using only the R (Recency) and M (Monetary) metrics.
