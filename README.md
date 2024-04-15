@@ -5,8 +5,10 @@
 - The average order value is 137,75 R$.
 - The cancellation rate is only 0,47%, which is a positive sign.
 - The best selling products of all time are health and beauty products.
+
 ![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/2.png)
 Drilling into 11/2017, it was obvious why this month yielded the greatest sales. Black Friday was the 24th of the month, orders and sales exploded during this day.
+
 ![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/3.png)
 Customers are divided into 4 segments by using the RFM metrics. However, the datasets that were provided only consist of customers that either have made a purchase once or have never purchased anything, the F (Frequency) metric is therefore left out.
 - 52 Customers are then segmented by using only the R (Recency) and M (Monetary) metrics.
@@ -42,6 +44,7 @@ the process took 12,41 days on average.
 One key takeaway is that the delivery time does affect the customers’
 satisfaction: the slower the delivery time, the lower the review score. That’s why we
 will need to look at specific sellers, cities or states that are having delivery problems.
+
 ![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/7.png)
 States and cities that have a percentage of late orders over the average number would be marked with a red icon. Considering the top 3 states that generate the highest sales, we have RJ (Rio de Janeiro) quite out of standard so we would look at this state in specific to uncover the underlying issues.
 Looking at the figure, almost all the cities in this state are having a problem with delivering orders on time. The sellers are obviously not at fault here since the confirmation time and pickup time was relatively short while the time to and deliver an order took ages to complete.
