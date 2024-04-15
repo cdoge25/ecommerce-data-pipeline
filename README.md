@@ -48,20 +48,23 @@ will need to look at specific sellers, cities or states that are having delivery
 
 ![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/7.png)
 States and cities that have a percentage of late orders over the average number would be marked with a red icon. Considering the top 3 states that generate the highest sales, we have RJ (Rio de Janeiro) quite out of standard so we would look at this state in specific to uncover the underlying issues.
+
 Looking at the figure, almost all the cities in this state are having a problem with delivering orders on time. The sellers are obviously not at fault here since the confirmation time and pickup time was relatively short while the time to and deliver an order took ages to complete.
 ## 5. Recommendations
 ### 5.1. Consider peak sales time
 - Special days like Black Fridays or other holidays are a must for marketing strategies in order to increase product sales.
 - Organize campaigns during weekday afternoons since this is the time that customers are active the most.
 ### 5.2. Targeted marketing based on customer segments
-- For the “Inactive Customers” and “Recent Buyers” groups:
-+ Consider boosting marketing efforts on bed-bath-table, beauty cosmetics, sports and leisure-related products.
-+ Release vouchers that encourage installments in 3 months since this is their preferred duration to pay off an order.
-- For the “VIP Shoppers” and “Past High Rollers”:
-+ Focus more on these 2 groups than the previous 2 since they generate more sales.
-+ Consider boosting marketing efforts on watches and gifts, basically luxury items and beauty products.
-+ Release vouchers that encourage installments in 5 months since this is their preferred duration to pay off an order.
-- For “VIP Shoppers” specifically, consider releasing any kinds of vouchers or exclusive deals that would be in effect on Mondays as this is their favorite day to shop.
+For the “Inactive Customers” and “Recent Buyers” groups:
+- Consider boosting marketing efforts on bed-bath-table, beauty cosmetics, sports and leisure-related products.
+- Release vouchers that encourage installments in 3 months since this is their preferred duration to pay off an order.
+
+For the “VIP Shoppers” and “Past High Rollers”:
+- Focus more on these 2 groups than the previous 2 since they generate more sales.
+- Consider boosting marketing efforts on watches and gifts, basically luxury items and beauty products.
+- Release vouchers that encourage installments in 5 months since this is their preferred duration to pay off an order.
+
+For “VIP Shoppers” specifically, consider releasing any kinds of vouchers or exclusive deals that would be in effect on Mondays as this is their favorite day to shop.
 ### 5.3. Products’ Quality Control
 Look into sellers who sell diapers and hygiene, security and services products to see why they are getting negative reviews. Try to resolve the problem by contacting the seller and enforce measures to check their products’ quality. There might be fraudulent activities going on with the sellers who sell these kinds of products.
 ### 5.4. Address delivery issues
