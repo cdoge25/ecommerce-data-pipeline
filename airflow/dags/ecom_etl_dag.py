@@ -2,7 +2,6 @@ import os
 from datetime import datetime
 
 from airflow.decorators import dag, task
-from include.scripts.connectors import _get_minio_client
 from include.scripts.extractors import (
     _get_google_drive_file_content,
     _get_google_drive_file_list,
