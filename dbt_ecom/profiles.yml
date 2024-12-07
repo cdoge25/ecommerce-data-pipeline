@@ -41,13 +41,13 @@ cdoge25-postgres-ecom:
 cdoge25-snowflake-ecom:
   outputs:
     dev:
-      account: udtoltd-pr93316
-      database: ECOM
-      password: dbtPassword123
-      role: transform
+      account: "{{ env_var('DBT_SF_ACCOUNT') }}"
+      database: "{{ env_var('DBT_SF_DATABASE') }}"
+      password: "{{ env_var('DBT_SF_PASSWORD') }}"
+      role: "{{ env_var('DBT_SF_ROLE') }}"
       schema: DEV
-      threads: 1
+      threads: 10
       type: snowflake
-      user: dbt
+      user: "{{ env_var('DBT_SF_USER') }}"
       warehouse: COMPUTE_WH
   target: dev

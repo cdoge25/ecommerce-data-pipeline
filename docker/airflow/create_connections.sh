@@ -18,6 +18,6 @@ airflow connections add 'postgres' \
 # Slack Connection
 airflow connections add 'slack' \
     --conn-type 'slack' \
-    --conn-extra '{"token": "xoxb-7875525805922-7878076956260-b9qaxMEihSEyBMBQfO9SyfV7"}'
+    --conn-extra '{"token": "${SLACK_TOKEN}"}'
 
 echo "Connections added successfully."
