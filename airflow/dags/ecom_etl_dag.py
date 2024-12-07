@@ -1,14 +1,15 @@
 import os
 from datetime import datetime
 
-from airflow.decorators import dag, task
-from include.scripts.extractors import (
+from scripts.extractors import (
     _get_google_drive_file_content,
     _get_google_drive_file_list,
     _ingest_to_minio,
     _prepare_minio_buckets,
 )
-from include.scripts.processors.minio_processor import MinioCSVFileProcessor
+from scripts.processors.minio_processor import MinioCSVFileProcessor
+
+from airflow.decorators import dag, task
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_DRIVE_FOLDER_ID = os.getenv("GOOGLE_DRIVE_FOLDER_ID")

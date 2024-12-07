@@ -20,7 +20,7 @@ x-airflow-common:
     - ./airflow/dags:/opt/airflow/dags
     - ./airflow/logs:/opt/airflow/logs
     - ./airflow/plugins:/opt/airflow/plugins
-    - ./airflow/include:/opt/airflow/include
+    - ./airflow/scripts:/opt/airflow/scripts
     - ./dbt_ecom:/opt/airflow/dbt_ecom
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
@@ -156,7 +156,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: airflow
     volumes:
-      - ./airflow/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/airflow/init.sql:/docker-entrypoint-initdb.d/init.sql
       - postgres-db-volume:/var/lib/postgresql/data
     ports:
       - 5432:5432

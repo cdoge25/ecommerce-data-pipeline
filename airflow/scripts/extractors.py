@@ -1,8 +1,7 @@
 import io
 
 import requests
-
-from include.scripts.connectors import _get_minio_client
+from scripts.connectors import _get_minio_client
 
 RAW_BUCKET = "raw"
 PROCESSED_BUCKET = "processed"
