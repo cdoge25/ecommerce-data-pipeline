@@ -1,22 +1,22 @@
-# Brazil-Ecommerce
+# ecommerce-data-pipeline
 ## 1. Overview
 ### 1.1. Sales Overview
-![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/1.png)
+![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/img/1.png)
 - The total sales, total orders are 13,59 million R$ and 99 thousand orders respectively, and have increased significantly since 2017, with the highest sales in 11/2017.
 - The average order value is 137,75 R$.
 - The cancellation rate is only 0,47%, which is a positive sign.
 - The best selling products of all time are health and beauty products.
 ### 1.2. Highest Sales Date
-![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/2.png)
+![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/img/2.png)
 Drilling into 11/2017, it was obvious why this month yielded the greatest sales. Black Friday was the 24th of the month, orders and sales exploded during this day.
 ### 1.3. Customer Segmentation
-![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/3.png)
+![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/img/3.png)
 Customers are divided into 4 segments by using the RFM metrics. However, the datasets that were provided only consist of customers that either have made a purchase once or have never purchased anything, the F (Frequency) metric is therefore left out.
 - 52 Customers are then segmented by using only the R (Recency) and M (Monetary) metrics.
 - Those who have made a purchase recently that is also one of high-value are the “VIP Shoppers”, those who made a purchase of high-value but haven’t purchased again recently are the “Past High Rollers”. Those who ordered moderate-value products recently are the “Recent Buyers” and those who have only made a purchase of low-value products a long time ago are the “Inactive Customers”.
 - Low to moderate-value customers are about 60% of the customer base but only account for 25% of sales .“VIP Shoppers” and “Past High Rollers” on the other hand, take about 40% of the customer base but account for 75% of sales, these are the customers that the company needs to focus more with their marketing efforts.
 ## 2. Customer Segments' Preferences
-![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/4.png)
+![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/img/4.png)
 ### 2.1. "Inactive Customers" and "Recent Buyers"
 These 2 types of customers are not so different on their taste and behavior, they share some common characteristics:
 - They tend to make purchases during weekday afternoons.
@@ -30,13 +30,13 @@ These 2 also have similar patterns in their favorite ordering time as the 2 type
 - They tend to pay within 5 installments, probably because of the high value items.
 The 4 segments are not separable by payment methods, as they all primarily pay with credit cards.
 ## 3. Product Reviews
-![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/5.png)
+![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/img/5.png)
 Some statistics about product reviews:
 - 40,77% of order reviews had a comment included.
 - 77% of reviews were positive, which had a rating of either 4 or 5.
 - cds-dvds-musicals had the highest average rating of 4,64 while security and services had the lowest average rating of 2,50.
 ## 4. Delivery Time
-![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/6.png)
+![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/img/6.png)
 Delivery time statistics:
 - The average confirmation time is 0,53 days, the average pickup time is 2,75
 days, the average delivery time is 9,14 days. From start to end (purchasing to receiving),
@@ -46,7 +46,7 @@ One key takeaway is that the delivery time does affect the customers’
 satisfaction: the slower the delivery time, the lower the review score. That’s why we
 will need to look at specific sellers, cities or states that are having delivery problems.
 
-![](https://github.com/cdoge25/Brazil-Ecommerce/blob/main/assets/7.png)
+![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/img/7.png)
 States and cities that have a percentage of late orders over the average number would be marked with a red icon. Considering the top 3 states that generate the highest sales, we have RJ (Rio de Janeiro) quite out of standard so we would look at this state in specific to uncover the underlying issues.
 
 Looking at the figure, almost all the cities in this state are having a problem with delivering orders on time. The sellers are obviously not at fault here since the confirmation time and pickup time was relatively short while the time to and deliver an order took ages to complete.

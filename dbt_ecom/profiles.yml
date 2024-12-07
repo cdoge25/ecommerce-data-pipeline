@@ -1,0 +1,53 @@
+# Do not include credentials in this file for production, use environment variables instead
+cdoge25-postgres-ecom:
+  outputs:
+    dev:
+      connect_timeout: 10
+      dbname: ecom
+      host: localhost
+      keepalives_idle: 0
+      password: dbtPassword123
+      port: 5432
+      retries: 1
+      role: transform
+      schema: dev
+      search_path: null
+      sslcert: null
+      sslkey: null
+      sslmode: null
+      sslrootcert: null
+      threads: 1
+      type: postgres
+      user: dbt
+    prod:
+      connect_timeout: 10
+      dbname: ecom
+      host: localhost
+      keepalives_idle: 0
+      password: dbtPassword123
+      port: 5432
+      retries: 1
+      role: transform
+      schema: prod      
+      search_path: null
+      sslcert: null 
+      sslkey: null
+      sslmode: null
+      sslrootcert: null
+      threads: 1
+      type: postgres
+      user: dbt
+  target: dev
+cdoge25-snowflake-ecom:
+  outputs:
+    dev:
+      account: udtoltd-pr93316
+      database: ECOM
+      password: dbtPassword123
+      role: transform
+      schema: DEV
+      threads: 1
+      type: snowflake
+      user: dbt
+      warehouse: COMPUTE_WH
+  target: dev
