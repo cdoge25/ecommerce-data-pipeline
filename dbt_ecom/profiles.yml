@@ -4,7 +4,7 @@ cdoge25-postgres-ecom:
     dev:
       connect_timeout: 10
       dbname: ecom
-      host: localhost
+      host: host.docker.internal
       keepalives_idle: 0
       password: dbtPassword123
       port: 5432
@@ -22,7 +22,7 @@ cdoge25-postgres-ecom:
     prod:
       connect_timeout: 10
       dbname: ecom
-      host: localhost
+      host: host.docker.internal
       keepalives_idle: 0
       password: dbtPassword123
       port: 5432

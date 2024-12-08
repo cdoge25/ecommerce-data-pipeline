@@ -16,6 +16,21 @@ x-airflow-common:
     # Secrets
     GOOGLE_API_KEY: ${GOOGLE_API_KEY}
     GOOGLE_DRIVE_FOLDER_ID: ${GOOGLE_DRIVE_FOLDER_ID}
+    DBT_SF_ACCOUNT: ${DBT_SF_ACCOUNT}
+    DBT_SF_DATABASE: ${DBT_SF_DATABASE}
+    DBT_SF_PASSWORD: ${DBT_SF_PASSWORD}
+    DBT_SF_ROLE: ${DBT_SF_ROLE}
+    DBT_SF_USER: ${DBT_SF_USER}
+    SLACK_TOKEN: ${SLACK_TOKEN}
+    MINIO_ACCESS_KEY_ID: ${MINIO_ACCESS_KEY_ID}
+    MINIO_SECRET_ACCESS_KEY: ${MINIO_SECRET_ACCESS_KEY}
+    MINIO_ENDPOINT: ${MINIO_ENDPOINT}
+    POSTGRES_HOST: ${POSTGRES_HOST}
+    POSTGRES_PORT: ${POSTGRES_PORT}
+    POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+    POSTGRES_USER: ${POSTGRES_USER}
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
   volumes:
     - ./airflow/dags:/opt/airflow/dags
     - ./airflow/logs:/opt/airflow/logs
@@ -122,7 +137,7 @@ services:
     <<: *airflow-common
     image: apache/airflow:2.10.3
     container_name: airflow-scheduler
-    command: airflow scheduler & bash /opt/airflow/create_connections.sh
+    command: airflow scheduler
     # healthcheck:
     #   test: ["CMD-SHELL", 'airflow jobs check --job-type SchedulerJob --hostname "$${HOSTNAME}"']
     #   interval: 10s
@@ -156,7 +171,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: airflow
     volumes:
-      - ./docker/airflow/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
       - postgres-db-volume:/var/lib/postgresql/data
     ports:
       - 5432:5432
