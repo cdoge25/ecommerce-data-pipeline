@@ -26,7 +26,6 @@ RUN python3 -m pip install --upgrade pip
 RUN python -m pip install -r requirements.txt
 
 COPY create_connections.sh /opt/airflow/create_connections.sh
-RUN chmod +x /opt/airflow/create_connections.sh
-RUN chown 50000:0 /opt/airflow/create_connections.sh
+RUN chmod a+x /opt/airflow/create_connections.sh
 
 USER $AIRFLOW_UID
