@@ -59,7 +59,7 @@ def _load_to_postgres():
             "password": POSTGRES_PASSWORD,
             "driver": "org.postgresql.Driver",
         }
-        table_name = file_path.split("/")[-1].split(".")[0]
+        table_name = f"{POSTGRES_SCHEMA}_{file_path.split("/")[-1].split(".")[0]}"
         table = f"{POSTGRES_SCHEMA}.{table_name}"
         df.write.jdbc(url=url, table=table, mode="overwrite", properties=properties)
         print("=" * 100)
@@ -101,7 +101,7 @@ def _load_to_snowflake():
             "sfPassword": SNOWFLAKE_PASSWORD,
             "sfRole": SNOWFLAKE_ROLE,
         }
-        table_name = file_path.split("/")[-1].split(".")[0]
+        table_name = f"{SNOWFLAKE_SCHEMA}_{file_path.split("/")[-1].split(".")[0]}"
         table = f"{SNOWFLAKE_SCHEMA}.{table_name}"
         df.write.format("snowflake").options(**sf_options).option(
             "dbtable", table
