@@ -29,3 +29,5 @@ models:
     marts:
       +schema: marts
       +materialized: incremental
+      +post-hook:
+        - "GRANT SELECT ON {{ this }} TO ROLE REPORTER"
