@@ -14,7 +14,7 @@ WITH int_products_translation AS (
         p.dbt_valid_from,
         p.dbt_valid_to
     FROM {{ ref('stg_products') }} AS p
-    JOIN {{ ref('stg_product_category_name_translation') }} AS t
+    LEFT JOIN {{ ref('stg_product_category_name_translation') }} AS t
         ON p.product_category_name = t.product_category_name
 )
 SELECT *

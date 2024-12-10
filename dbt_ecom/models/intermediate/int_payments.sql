@@ -3,7 +3,7 @@ WITH merge_orders_order_payments AS (
         op.*,
         o.customer_address_id
     FROM {{ ref('stg_order_payments') }} AS op
-    JOIN {{ ref('stg_orders') }} AS o
+    LEFT JOIN {{ ref('stg_orders') }} AS o
         ON op.order_id = o.order_id
 ),
 
@@ -12,7 +12,7 @@ merge_orders_customers AS (
         m.*,
         c.customer_key
     FROM merge_orders_order_payments AS m
-    JOIN {{ ref('dim_customers') }} AS c
+    LEFT JOIN {{ ref('dim_customers') }} AS c
         ON m.customer_address_id = c.customer_address_id
     WHERE c.dbt_valid_to IS NULL
 ),

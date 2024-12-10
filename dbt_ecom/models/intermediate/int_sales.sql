@@ -8,7 +8,7 @@ WITH merge_orders_order_items AS (
         oi.price,
         oi.freight_value,
     FROM {{ ref('stg_order_items') }} AS oi
-    JOIN {{ ref('stg_orders') }} AS o
+    LEFT JOIN {{ ref('stg_orders') }} AS o
         ON oi.order_id = o.order_id
 ),
 
@@ -17,7 +17,7 @@ merge_orders_reviews AS (
         m.*,
         r.review_key
     FROM merge_orders_order_items AS m
-    JOIN {{ ref('dim_reviews') }} AS r
+    LEFT JOIN {{ ref('stg_order_reviews') }} AS r
         ON m.order_id = r.order_id
 ),
 
@@ -26,7 +26,7 @@ merge_orders_customers AS (
         m.*,
         c.customer_key
     FROM merge_orders_reviews AS m
-    JOIN {{ ref('dim_customers') }} AS c
+    LEFT JOIN {{ ref('dim_customers') }} AS c
         ON m.customer_address_id = c.customer_address_id
     WHERE c.dbt_valid_to IS NULL
 ),
@@ -36,7 +36,7 @@ merge_orders_sellers AS (
         m.*,
         s.seller_key
     FROM merge_orders_customers AS m
-    JOIN {{ ref('dim_sellers') }} AS s
+    LEFT JOIN {{ ref('dim_sellers') }} AS s
         ON m.seller_id = s.seller_id
     WHERE s.dbt_valid_to IS NULL
 ),
@@ -46,7 +46,7 @@ merge_orders_products AS (
         m.*,
         p.product_key
     FROM merge_orders_sellers AS m
-    JOIN {{ ref('dim_products') }} AS p
+    LEFT JOIN {{ ref('dim_products') }} AS p
         ON m.product_id = p.product_id
 ),
 

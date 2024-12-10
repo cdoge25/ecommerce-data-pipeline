@@ -8,7 +8,7 @@ WITH stg_order_reviews AS (
         review_comment_message,
         review_creation_date,
         review_answer_timestamp
-    FROM {{ source('landing', 'order_reviews') }}
+    FROM {{ ref('int_ranked_reviews') }}
 )
 SELECT *
 FROM stg_order_reviews
