@@ -13,7 +13,6 @@ x-airflow-common:
     AIRFLOW__CORE__TEST_CONNECTION: 'Enabled'
     # Permissions for the airflow user
     # AIRFLOW_UID: ${AIRFLOW_UID}
-    # AIRFLOW_GID: ${AIRFLOW_GID}
     # Add the include folder to the PYTHONPATH
     PYTHONPATH: /opt/airflow
     # Secrets

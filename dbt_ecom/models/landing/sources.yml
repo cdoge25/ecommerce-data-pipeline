@@ -1,0 +1,22 @@
+sources:
+  - name: landing
+    description: Landing zone for Ecommerce data loaded from data lake
+    schema: landing
+    database: ecom
+    tables:
+      - name: customers
+        identifier: lnd_customers
+      - name: orders
+        identifier: lnd_orders
+      - name: order_items
+        identifier: lnd_order_items
+      - name: order_payments
+        identifier: lnd_order_payments
+      - name: order_reviews
+        identifier: lnd_order_reviews
+      - name: products
+        identifier: lnd_products
+      - name: product_category_name_translation
+        identifier: lnd_product_category_name_translation
+      - name: sellers
+        identifier: lnd_sellers

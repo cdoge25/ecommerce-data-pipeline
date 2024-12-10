@@ -1,7 +1,7 @@
 # Do not include credentials in this file for production, use environment variables instead
 cdoge25-postgres-ecom:
   outputs:
-    dev:
+    marts:
       connect_timeout: 10
       dbname: ecom
       host: localhost
@@ -10,7 +10,7 @@ cdoge25-postgres-ecom:
       port: 5432
       retries: 1
       role: transform
-      schema: dev
+      schema: marts
       search_path: null
       sslcert: null
       sslkey: null
@@ -19,35 +19,17 @@ cdoge25-postgres-ecom:
       threads: 1
       type: postgres
       user: dbt
-    prod:
-      connect_timeout: 10
-      dbname: ecom
-      host: localhost
-      keepalives_idle: 0
-      password: dbtPassword123
-      port: 5432
-      retries: 1
-      role: transform
-      schema: prod      
-      search_path: null
-      sslcert: null 
-      sslkey: null
-      sslmode: null
-      sslrootcert: null
-      threads: 1
-      type: postgres
-      user: dbt
-  target: dev
+  target: marts
 cdoge25-snowflake-ecom:
   outputs:
-    dev:
-      account: "{{ env_var('DBT_SF_ACCOUNT') }}"
-      database: "{{ env_var('DBT_SF_DATABASE') }}"
-      password: "{{ env_var('DBT_SF_PASSWORD') }}"
-      role: "{{ env_var('DBT_SF_ROLE') }}"
-      schema: DEV
+    marts:
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: "{{ env_var('DBT_ROLE') }}"
+      schema: marts
       threads: 10
       type: snowflake
-      user: "{{ env_var('DBT_SF_USER') }}"
+      user: "{{ env_var('DBT_USER') }}"
       warehouse: COMPUTE_WH
-  target: dev
+  target: marts

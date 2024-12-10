@@ -9,8 +9,8 @@ GRANT ALL PRIVILEGES ON DATABASE airflow TO airflow;
 
 \c ecom
 
-CREATE SCHEMA IF NOT EXISTS stg;
-SET search_path TO stg;
+CREATE SCHEMA IF NOT EXISTS landing;
+SET search_path TO landing;
 
 DO $$ BEGIN
     CREATE ROLE transform;

@@ -88,20 +88,21 @@ class MinioCSVFileProcessor:
                     OR order_id = ''
                     OR review_id IS NULL
                     OR review_id = '';
-            ALTER TABLE order_reviews
-                ADD COLUMN review_unique_id VARCHAR;
-            UPDATE order_reviews
-                SET review_unique_id = md5(order_id || '_' || review_id);
         """)
 
     def _process_orders(self):
         self.conn.execute("""
+            ALTER TABLE orders
+                RENAME COLUMN customer_id TO customer_address_id;
             ALTER TABLE orders
                 RENAME COLUMN order_approved_at TO order_approved_timestamp;
             ALTER TABLE orders
                 RENAME COLUMN order_delivered_carrier_date TO order_pickup_timestamp;
             ALTER TABLE orders
                 RENAME COLUMN order_delivered_customer_date TO order_delivered_timestamp;
+            UPDATE orders
+                SET order_updated_timestamp = 
+                    COALESCE(order_delivered_timestamp, order_pickup_timestamp, order_approved_timestamp, order_purchase_timestamp);
             DELETE FROM orders
                 WHERE
                     order_id IS NULL
