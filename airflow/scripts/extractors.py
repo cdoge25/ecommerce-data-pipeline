@@ -40,3 +40,17 @@ def _ingest_to_minio(object_name: str, data: bytes) -> str:
     )
     file_path = f"{RAW_BUCKET}/{object_name}"
     return file_path
+
+
+# def _ingest_to_azure(object_name: str, data: bytes) -> str:
+#     import pandas as pd
+
+#     df = pd.read_csv(io.BytesIO(data))
+#     df.to_csv(
+#         "abfs://ecommerce@haindt.dfs.core.windows.net/raw/" + object_name,
+#         storage_options={
+#             "account_key": "nK/Zgji0yg9BPUP0e50TLgvqQECmeFR91Y73HhG/3DGyVy5HW8jnYLVyvyh54nvRHIyLjhb2/+j++ASt6AO9pw=="
+#         },
+#     )
+
+#     return
