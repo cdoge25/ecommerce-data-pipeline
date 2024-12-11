@@ -21,11 +21,11 @@ This project showcases a robust data pipeline that automates the process of extr
 ├── assets/               /* Contains various project assets: dashboard, images... */
 ├── dbt_ecom/             /* Contains dbt scripts */
 ├── docker/               /* Docker configurations and related files of data product */
-│   ├── airflow/               /* Backup files for databases or components */
-│   ├── postgres/              /* Certbot folder for managing SSL certificates */
-│   ├── spark-app/            /* Lightdash folder for business intelligence tools */
-│   ├── spark-master/                /* MinIO for object storage (S3-compatible) */
-│   ├── spark-worker/                /* Nginx web server and reverse proxy configurations */
+│   ├── airflow/               
+│   ├── postgres/              
+│   ├── spark-app/            
+│   ├── spark-master/                
+│   ├── spark-worker/                
 ├── .gitignore
 ├── docker-compose.yaml
 ├── README.md
