@@ -1,3 +1,5 @@
 # Project
 ## 1. Overview
-![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/diagram/dataflow.svg)
+<p align="center">
+    <img src="assets/diagrams/dataflow.svg" alt="data-flow" style="border-radius: 10px;">
+</p>
