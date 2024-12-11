@@ -49,7 +49,7 @@ def _ingest_to_minio(object_name: str, data: bytes) -> str:
 #     df.to_csv(
 #         "abfs://ecommerce@haindt.dfs.core.windows.net/raw/" + object_name,
 #         storage_options={
-#             "account_key": ""
+#             "account_key": "os.getenv('AZURE_DATA_LAKE_KEY')",
 #         },
 #     )
 
