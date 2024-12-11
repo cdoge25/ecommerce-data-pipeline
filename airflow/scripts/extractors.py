@@ -49,7 +49,7 @@ def _ingest_to_minio(object_name: str, data: bytes) -> str:
 #     df.to_csv(
 #         "abfs://ecommerce@haindt.dfs.core.windows.net/raw/" + object_name,
 #         storage_options={
-#             "account_key": "nK/Zgji0yg9BPUP0e50TLgvqQECmeFR91Y73HhG/3DGyVy5HW8jnYLVyvyh54nvRHIyLjhb2/+j++ASt6AO9pw=="
+#             "account_key": ""
 #         },
 #     )
 
