@@ -23,7 +23,7 @@ This project showcases a robust data pipeline that automates the process of extr
     - [Slack](#slack)
     - [PowerBI](#powerbi)
   - [Business Insights](#business-insights)
-    - [1. Master Dashboard](#1-master-dashboard)
+    - [1. General Analysis](#1-general-analysis)
       - [1.1. Sales Overview](#11-sales-overview)
       - [1.2. Highest Sales Date](#12-highest-sales-date)
       - [1.3. Customer Segmentation](#13-customer-segmentation)
@@ -51,10 +51,10 @@ This project showcases a robust data pipeline that automates the process of extr
 ├── airflow/              /* airflow folder, contains DAGs and scripts */
 ├── assets/               /* assets folder, contains various project assets: dashboard, images... */
 ├── dbt_ecom/             /* dbt project folder, contains dbt scripts */
-├── docker/               /* docker folder, contains builds, configurations,... for related Docker services */
+├── docker/               /* docker services configuration folder */
 │   ├── airflow/               /* airflow orchestrator configurations */
 │   ├── postgres/              /* postgres database initialization script */
-│   ├── spark-app/             /* spark-app configurations, an app that submits jobs from an isolated container */
+│   ├── spark-app/             /* spark-app configurations */
 │   ├── spark-master/          /* spark-master configurations */
 │   ├── spark-worker/          /* spark-worker configurations */
 ├── .gitignore
@@ -216,7 +216,7 @@ This would serve as our visualization tool, using the data model that we have cr
 
 ## Business Insights
 Now that we have done all our data engineering work, it is time for some data analytics. The whole analytics is available as .pdf and .pbix located in the [assets/dashboard](assets/dashboard/) folder.
-### 1. Master Dashboard
+### 1. General Analysis
 #### 1.1. Sales Overview
 ![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/dashboard/1.png)
 - The total sales, total orders are 13,59 million R$ and 99 thousand orders respectively, and have increased significantly since 2017, with the highest sales in 11/2017.
