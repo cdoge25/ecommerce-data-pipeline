@@ -1,4 +1,4 @@
-name: airflow
+name: ecom
 x-airflow-common:
   &airflow-common  
   environment:
@@ -189,9 +189,6 @@ services:
       retries: 5
 
   # For local development, airflow triggerer, celery worker and redis is omitted for less overhead
-
-  # local services
-
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin

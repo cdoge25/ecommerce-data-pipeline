@@ -100,9 +100,6 @@ class MinioCSVFileProcessor:
                 RENAME COLUMN order_delivered_carrier_date TO order_pickup_timestamp;
             ALTER TABLE orders
                 RENAME COLUMN order_delivered_customer_date TO order_delivered_timestamp;
-            UPDATE orders
-                SET order_updated_timestamp = 
-                    COALESCE(order_delivered_timestamp, order_pickup_timestamp, order_approved_timestamp, order_purchase_timestamp);
             DELETE FROM orders
                 WHERE
                     order_id IS NULL

@@ -11,6 +11,7 @@ from scripts.processors.minio_processor import MinioCSVFileProcessor
 
 from airflow.decorators import dag, task
 from airflow.providers.docker.operators.docker import DockerOperator
+from airflow.providers.slack.notifications.slack_notifier import SlackNotifier
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_DRIVE_FOLDER_ID = os.getenv("GOOGLE_DRIVE_FOLDER_ID")
@@ -40,6 +41,12 @@ SNOWFLAKE_ROLE = os.getenv("SNOWFLAKE_ROLE")
     schedule_interval=None,
     catchup=False,
     tags=["extract"],
+    on_success_callback=SlackNotifier(
+        slack_conn_id="slack", text="The DAG etl_ecom has succeeded", channel="ecom"
+    ),
+    on_failure_callback=SlackNotifier(
+        slack_conn_id="slack", text="The DAG etl_ecom has failed", channel="ecom"
+    ),
 )
 def etl_ecom():
     @task
