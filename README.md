@@ -72,6 +72,9 @@ Below is the relationships of our datasets, it was generated from the OLTP syste
   Source Relational Model
 </p>
 
+For demonstration purpose of using Google API, I have uploaded the files to a [Google Drive folder](https://drive.google.com/drive/u/0/folders/1eXYUUpbN1udj1flxvvSu7IIJNJbSo6wv).
+
+You can find the original data here [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
 ## Quickstart
 > For optimal experience, ensure you have the following services installed before starting this project:
