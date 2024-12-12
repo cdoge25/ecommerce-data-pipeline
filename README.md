@@ -99,6 +99,7 @@ pip install -r requirements.txt
 > - Before firing up the containers, make sure you create a .env file at the root level. This is for passing your desired environment variables into the containers (particularly your credentials). Please refer to the .env.example to have a grasp of what you should include. If you want to change or add additional variables in the .env file, you may need to adjust your `docker-compose.yaml` file accordingly to reflect the exact environment variables.
 > - You should also pre-download jar files for spark and place them directly within each of spark-app, spark-master, spark-worker folder. Please refer to the Dockerfile of each services to know which jars to download. I have preconfigured the Dockerfiles to automatically copy the jar files to their respective location in the containers, given that you already downloaded the jar files. If you don't want to download the jar files to your local machine, you can comment out the `COPY` block of jar files and uncomment the `RUN` block to download the jar files to the containers instead. However, this would take up a considerable amount of time whenver you need to rebuild the containers because the download process need to be run again, therefore I recommend you to use the pre-download approach instead.
 This command will download the docker images, build containers and start the declared services in the `docker-compose.yaml` file. About what each `make` command options do, refer to the Makefile for more information.
+Now for a quick startup, run this command
 ```shell
 make up
 ```
@@ -124,6 +125,11 @@ This is a custom file to automate creating airflow hooks (connection strings and
 
 ### Azure Data Lake
 Cloud Storage Solution to store our data in its raw and processed state. This service requires you to have an Azure Subscription, with a pre-configured Storage Account for Azure Data Lake Gen 2. You can sign up for Azure Trial if you haven't done it already, it will give you access to Azure services for 30 days to practice your skills. If you don't have Azure available, please refer to the Minio section as a local alternative for this project.
+<p align="center">
+    <img src="assets/diagrams/azure.png" alt="azure" style="border-radius: 10px;">
+    </br>
+  Azure overview
+</p>
 
 ### Minio
 This service serves as a local object storage if you don't have access to any of the cloud providers. It is configured to automatically run as a container when you use `make up`, If you already have another cloud storage option, consider comment out this service from `docker-compose.yaml` for less resource drain.
@@ -135,9 +141,19 @@ This service serves as a local object storage if you don't have access to any of
 
 ### DuckDB
 This is our data processing engine at the data lake layer. You can check it out here: [DuckDB](https://github.com/duckdb/duckdb)
+
 Polars is another great option for this kind of work, I did not use it for this project but you can also have a look at it: [Polars](https://github.com/pola-rs/polars)
+
 Both of these tools are amazingly fast for our data scale but I decided to use more SQL so `DuckDB` it is.
+
 If you decided to embark on another project, consider using these because `pandas` would probably be too slow and `spark` would probably be overkill. Ultimately, the choice is yours.
+
+It doesn't really have a UI, so I will probably include this image just because.
+<p align="center">
+    <img src="assets/diagrams/duckdb.png" alt="duckdb" style="border-radius: 10px;">
+    </br>
+  DuckDB overview
+</p>
 
 ### Apache Spark
 Even though I said that Spark is overkill, I need to somehow include it to demonstrate my so called "modern tech-stack". So here we are, Spark serves as another layer of data processing before we can officially load it into our data warehouse. We will have a spark-master container which manages, spark-worker which runs our tasks, and spark-app which submits the tasks.
