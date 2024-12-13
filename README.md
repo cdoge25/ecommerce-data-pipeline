@@ -31,9 +31,9 @@ This project showcases a robust data pipeline that automates the process of extr
 
 ## Architecture
 <p align="center">
-    <img src="assets/diagrams/dataflow.svg" alt="data-flow" style="border-radius: 10px;">
+    <img src="assets/diagrams/architecture.svg" alt="architecture" style="border-radius: 10px;">
     </br>
-  Project Dataflow
+  Project Architecture
 </p>
 
 ## Project Structure
@@ -223,8 +223,8 @@ Drilling into 11/2017, it was obvious why this month yielded the greatest sales.
 #### Customer Segmentation
 ![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/dashboard/3.png)
 Customers are divided into 4 segments by using the RFM metrics. However, the datasets that were provided only consist of customers that either have made a purchase once or have never purchased anything, the F (Frequency) metric is therefore left out.
-- 52 Customers are then segmented by using only the R (Recency) and M (Monetary) metrics.
-- Those who have made a purchase recently that is also one of high-value are the “VIP Shoppers”, those who made a purchase of high-value but haven’t purchased again recently are the “Past High Rollers”. Those who ordered moderate-value products recently are the “Recent Buyers” and those who have only made a purchase of low-value products a long time ago are the “Inactive Customers”.
+- Customers are then segmented by using only the R (Recency) and M (Monetary) metrics.
+- Those who have made a purchase recently that is also one of high-value are the “VIP Shoppers”, those who made a purchase of high-value but haven't purchased again recently are the “Past High Rollers”. Those who ordered moderate-value products recently are the “Recent Buyers” and those who have only made a purchase of low-value products a long time ago are the “Inactive Customers”.
 - Low to moderate-value customers are about 60% of the customer base but only account for 25% of sales .“VIP Shoppers” and “Past High Rollers” on the other hand, take about 40% of the customer base but account for 75% of sales, these are the customers that the company needs to focus more with their marketing efforts.
 ### Customer Segments' Preferences
 ![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/dashboard/4.png)
@@ -255,8 +255,8 @@ Delivery time statistics:
 days, the average delivery time is 9,14 days. From start to end (purchasing to receiving),
 the process took 12,41 days on average.
 - 8,11% of orders were late.
-One key takeaway is that the delivery time does affect the customers’
-satisfaction: the slower the delivery time, the lower the review score. That’s why we
+One key takeaway is that the delivery time does affect the customers'
+satisfaction: the slower the delivery time, the lower the review score. That's why we
 will need to look at specific sellers, cities or states that are having delivery problems.
 
 ![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/dashboard/7.png)
@@ -281,8 +281,8 @@ For the “VIP Shoppers” and “Past High Rollers”:
 
 For “VIP Shoppers” specifically, consider releasing any kinds of vouchers or exclusive deals that would be in effect on Mondays as this is their favorite day to shop.
 <!-- omit in toc -->
-#### Products’ Quality Control
-Look into sellers who sell diapers and hygiene, security and services products to see why they are getting negative reviews. Try to resolve the problem by contacting the seller and enforce measures to check their products’ quality. There might be fraudulent activities going on with the sellers who sell these kinds of products.
+#### Products' Quality Control
+Look into sellers who sell diapers and hygiene, security and services products to see why they are getting negative reviews. Try to resolve the problem by contacting the seller and enforce measures to check their products' quality. There might be fraudulent activities going on with the sellers who sell these kinds of products.
 <!-- omit in toc -->
 #### Address delivery issues
 - A great number of states and cities were below standard in delivery time, especially Rio de Janeiro. This problem could lie in resource allocation. It seems that the company did not have enough warehouses or shipping units available in Rio de Janeiro, which led to a huge number of late deliveries.
