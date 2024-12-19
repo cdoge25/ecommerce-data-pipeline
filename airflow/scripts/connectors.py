@@ -1,14 +1,17 @@
+import os
+
 from minio import Minio
 
-from airflow.hooks.base import BaseHook
+MINIO_ACCESS_KEY_ID = os.getenv("MINIO_ACCESS_KEY_ID")
+MINIO_SECRET_ACCESS_KEY = os.getenv("MINIO_SECRET_ACCESS_KEY")
+MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT")
 
 
 def _get_minio_client():
-    airflow_minio_connection = BaseHook.get_connection("minio")
     client = Minio(
-        endpoint=airflow_minio_connection.extra_dejson["endpoint_url"].split("//")[1],
-        access_key=airflow_minio_connection.login,
-        secret_key=airflow_minio_connection.password,
+        endpoint=MINIO_ENDPOINT,
+        access_key=MINIO_ACCESS_KEY_ID,
+        secret_key=MINIO_SECRET_ACCESS_KEY,
         secure=False,
     )
     return client
