@@ -2,7 +2,7 @@ name: 'dbt_ecom'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'cdoge25-postgres-ecom'
+profile: 'cdoge25-snowflake-ecom'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be

@@ -1,7 +1,10 @@
 .PHONY: up down destroy restart fresh-restart help
 
 up:
-	docker compose up -d --build
+	docker compose up -d
+
+recreate:
+	docker compose up -d --force-recreate --build
 
 down:
 	docker compose down

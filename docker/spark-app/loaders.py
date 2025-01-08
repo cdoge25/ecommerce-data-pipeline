@@ -111,4 +111,4 @@ def _load_to_snowflake():
     os.system("kill %d" % os.getpid())
 
 
-_load_to_postgres()
+_load_to_snowflake()
