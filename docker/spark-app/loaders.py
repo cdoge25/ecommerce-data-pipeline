@@ -51,6 +51,7 @@ def _load_to_postgres():
         PROCESSED_FILE_PATH_LIST_STR.replace("'", '"')
     )
     for file_path in processed_file_path_list:
+        print("=" * 100)
         print(f"Reading: {file_path}")
         df = spark.read.parquet(f"s3a://{file_path}")
         url = f"jdbc:postgresql://{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DATABASE}"
@@ -110,4 +111,4 @@ def _load_to_snowflake():
     os.system("kill %d" % os.getpid())
 
 
-_load_to_snowflake()
+_load_to_postgres()

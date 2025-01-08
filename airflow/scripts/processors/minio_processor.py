@@ -1,18 +1,30 @@
+import os
+
 import duckdb
 
 from airflow.hooks.base import BaseHook
 
 PROCESSED_BUCKET = "processed"
+MINIO_ACCESS_KEY_ID = os.getenv("MINIO_ACCESS_KEY_ID")
+MINIO_SECRET_ACCESS_KEY = os.getenv("MINIO_SECRET_ACCESS_KEY")
+MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT")
 
 
 class MinioCSVFileProcessor:
     def __init__(self):
-        self.airflow_minio_connection = BaseHook.get_connection("minio")
         self.conn = duckdb.connect()
+        # self.airflow_minio_connection = BaseHook.get_connection("minio")
+        # self.conn.execute(f"""
+        #     SET s3_access_key_id = '{self.airflow_minio_connection.login}';
+        #     SET s3_secret_access_key = '{self.airflow_minio_connection.password}';
+        #     SET s3_endpoint = \'{self.airflow_minio_connection.extra_dejson["endpoint_url"].split("//")[1]}\';
+        #     SET s3_url_style = 'path';
+        #     SET s3_use_ssl = false;
+        # """)
         self.conn.execute(f"""
-            SET s3_access_key_id = '{self.airflow_minio_connection.login}';
-            SET s3_secret_access_key = '{self.airflow_minio_connection.password}';
-            SET s3_endpoint = \'{self.airflow_minio_connection.extra_dejson["endpoint_url"].split("//")[1]}\';
+            SET s3_access_key_id = '{MINIO_ACCESS_KEY_ID}';
+            SET s3_secret_access_key = '{MINIO_SECRET_ACCESS_KEY}';
+            SET s3_endpoint = '{MINIO_ENDPOINT}';
             SET s3_url_style = 'path';
             SET s3_use_ssl = false;
         """)

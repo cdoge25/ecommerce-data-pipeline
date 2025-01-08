@@ -6,7 +6,7 @@ WITH merge_orders_order_items AS (
         oi.seller_id,
         oi.order_limit_delivery_timestamp,
         oi.price,
-        oi.freight_value,
+        oi.freight_value
     FROM {{ ref('stg_order_items') }} AS oi
     LEFT JOIN {{ ref('stg_orders') }} AS o
         ON oi.order_id = o.order_id

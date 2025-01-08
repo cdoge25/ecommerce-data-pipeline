@@ -12,10 +12,17 @@ WITH stg_orders AS (
         CAST(TO_CHAR(order_approved_timestamp, 'YYYYMMDD') AS INT) AS order_approved_date_key,
         CAST(TO_CHAR(order_pickup_timestamp, 'YYYYMMDD') AS INT) AS order_pickup_date_key,
         CAST(TO_CHAR(order_delivered_timestamp, 'YYYYMMDD') AS INT) AS order_delivered_date_key,
-        EXTRACT(HOUR, order_purchase_timestamp) AS order_purchase_time_key,
-        EXTRACT(HOUR, order_approved_timestamp) AS order_approved_time_key,
-        EXTRACT(HOUR, order_pickup_timestamp) AS order_pickup_time_key,
-        EXTRACT(HOUR, order_delivered_timestamp) AS order_delivered_time_key
+        {% if target.type == 'snowflake' %}
+            EXTRACT(HOUR, order_purchase_timestamp) AS order_purchase_time_key,
+            EXTRACT(HOUR, order_approved_timestamp) AS order_approved_time_key,
+            EXTRACT(HOUR, order_pickup_timestamp) AS order_pickup_time_key,
+            EXTRACT(HOUR, order_delivered_timestamp) AS order_delivered_time_key
+        {% elif target.type == 'postgres' %}
+            EXTRACT(HOUR FROM order_purchase_timestamp) AS order_purchase_time_key,
+            EXTRACT(HOUR FROM order_approved_timestamp) AS order_approved_time_key,
+            EXTRACT(HOUR FROM order_pickup_timestamp) AS order_pickup_time_key,
+            EXTRACT(HOUR FROM order_delivered_timestamp) AS order_delivered_time_key
+        {% endif %}
     FROM {{ source('landing', 'orders') }}
 )
 SELECT *

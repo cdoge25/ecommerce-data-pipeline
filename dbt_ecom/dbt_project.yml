@@ -2,7 +2,7 @@ name: 'dbt_ecom'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'cdoge25-snowflake-ecom'
+profile: 'cdoge25-postgres-ecom'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -30,4 +30,8 @@ models:
       +schema: marts
       +materialized: incremental
       +post-hook:
-        - "GRANT SELECT ON {{ this }} TO ROLE REPORTER"
+        - "{% if target.type == 'snowflake' %}
+            GRANT SELECT ON {{ this }} TO ROLE REPORTER;
+          {% elif target.type == 'postgres' %}
+            GRANT SELECT ON {{ this }} TO reporter;
+          {% endif %}"

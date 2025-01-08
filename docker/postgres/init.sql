@@ -27,3 +27,16 @@ END $$;
 
 GRANT transform TO dbt;
 ALTER ROLE transform WITH SUPERUSER;
+
+-- Create the `pbi` user and assign to the `reporter` role
+CREATE SCHEMA IF NOT EXISTS marts;
+CREATE ROLE reporter;
+GRANT USAGE ON SCHEMA marts TO reporter;
+GRANT SELECT ON ALL TABLES IN SCHEMA marts TO reporter;
+ALTER DEFAULT PRIVILEGES IN SCHEMA marts GRANT SELECT ON TABLES TO reporter;
+
+CREATE USER pbi WITH PASSWORD 'pbiPassword123';
+GRANT reporter TO pbi;
+ALTER ROLE pbi INHERIT;
+
+

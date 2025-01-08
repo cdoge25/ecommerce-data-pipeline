@@ -16,7 +16,7 @@ cdoge25-postgres-ecom:
       sslkey: null
       sslmode: null
       sslrootcert: null
-      threads: 1
+      threads: 10
       type: postgres
       user: dbt
   target: marts
