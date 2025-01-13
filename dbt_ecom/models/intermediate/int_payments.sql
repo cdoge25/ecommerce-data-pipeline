@@ -10,17 +10,22 @@ WITH merge_orders_order_payments AS (
 merge_orders_customers AS (
     SELECT 
         m.*,
-        c.customer_key
+        ca.customer_id
     FROM merge_orders_order_payments AS m
-    LEFT JOIN {{ ref('dim_customers') }} AS c
-        ON m.customer_address_id = c.customer_address_id
-    WHERE c.dbt_valid_to IS NULL
+    LEFT JOIN {{ ref('dim_customer_addresses') }} AS ca
+        ON m.customer_address_id = ca.customer_address_id
+    WHERE ca.dbt_valid_to IS NULL
 ),
 
 int_payments AS (
     SELECT
         {{ dbt_utils.generate_surrogate_key(['order_id','payment_sequence']) }} AS payments_key,
-        *
+        order_id,
+        payment_sequence,
+        payment_type,
+        payment_installments,
+        payment_value,
+        customer_id
     FROM merge_orders_customers
 )
 SELECT *

@@ -12,30 +12,22 @@ WITH merge_orders_order_items AS (
         ON oi.order_id = o.order_id
 ),
 
-merge_orders_reviews AS (
-    SELECT
-        m.*,
-        r.review_key
-    FROM merge_orders_order_items AS m
-    LEFT JOIN {{ ref('stg_order_reviews') }} AS r
-        ON m.order_id = r.order_id
-),
-
-merge_orders_customers AS (
+merge_orders_customer_addresses AS (
     SELECT 
         m.*,
-        c.customer_key
-    FROM merge_orders_reviews AS m
-    LEFT JOIN {{ ref('dim_customers') }} AS c
-        ON m.customer_address_id = c.customer_address_id
-    WHERE c.dbt_valid_to IS NULL
+        ca.customer_address_key,
+        ca.customer_id
+    FROM merge_orders_order_items AS m
+    LEFT JOIN {{ ref('dim_customer_addresses') }} AS ca
+        ON m.customer_address_id = ca.customer_address_id
+    WHERE ca.dbt_valid_to IS NULL
 ),
 
 merge_orders_sellers AS (
     SELECT
         m.*,
         s.seller_key
-    FROM merge_orders_customers AS m
+    FROM merge_orders_customer_addresses AS m
     LEFT JOIN {{ ref('dim_sellers') }} AS s
         ON m.seller_id = s.seller_id
     WHERE s.dbt_valid_to IS NULL
@@ -56,9 +48,9 @@ int_sales AS (
         order_id,
         order_product_sequence,
         product_key,
-        customer_key,
+        customer_address_key,
+        customer_id,
         seller_key,
-        review_key,
         price,
         freight_value,
         order_status,

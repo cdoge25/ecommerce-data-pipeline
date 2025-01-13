@@ -1,6 +1,5 @@
 WITH stg_order_reviews AS (
-    SELECT 
-        {{ dbt_utils.generate_surrogate_key(['review_id','order_id']) }} AS review_key,
+    SELECT
         review_id,
         order_id,
         review_score,
