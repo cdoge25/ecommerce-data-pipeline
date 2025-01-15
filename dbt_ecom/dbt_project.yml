@@ -24,7 +24,6 @@ models:
       +schema: staging
       +materialized: view
     intermediate:
-      +schema: intermediate
       +materialized: ephemeral
     marts:
       +schema: marts
@@ -35,3 +34,7 @@ models:
           {% elif target.type == 'postgres' %}
             GRANT SELECT ON {{ this }} TO reporter;
           {% endif %}"
+
+
+# landing -> snapshot -> staging -> marts
+# intermediate

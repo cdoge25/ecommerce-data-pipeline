@@ -9,7 +9,7 @@ This project showcases a robust data pipeline that automates the process of extr
   - [Data Source](#data-source)
   - [Quickstart](#quickstart)
     - [Clone the repository](#clone-the-repository)
-    - [Setup virutal environment](#setup-virutal-environment)
+    - [Setup virtual environment](#setup-virtual-environment)
     - [Start services](#start-services)
   - [Tech Stack](#tech-stack)
     - [Apache Airflow](#apache-airflow)
@@ -79,7 +79,7 @@ You can find the original data here [Brazilian E-Commerce Public Dataset by Olis
 git clone https://github.com/cdoge25/ecommerce-data-pipeline.git
 ```
 
-### Setup virutal environment
+### Setup virtual environment
 Navigate to your cloned directory
 ```shell
 conda create -n <your_env_name> python=3.11
@@ -97,7 +97,7 @@ Now for a quick startup, run this command
 ```shell
 make up
 ```
-As stated before, this is wholy optional, if you don't use `Makefile` you can still start up your services with this command
+As stated before, this is wholly optional, if you don't use `Makefile` you can still start up your services with this command
 ```shell
 docker compose up -d --build
 ```
@@ -224,12 +224,12 @@ Drilling into 11/2017, it was obvious why this month yielded the greatest sales.
 ![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/dashboard/3.png)
 Customers are divided into 4 segments by using the RFM metrics. However, the datasets that were provided only consist of customers that either have made a purchase once or have never purchased anything, the F (Frequency) metric is therefore left out.
 - Customers are then segmented by using only the R (Recency) and M (Monetary) metrics.
-- Those who have made a purchase recently that is also one of high-value are the “VIP Shoppers”, those who made a purchase of high-value but haven't purchased again recently are the “Past High Rollers”. Those who ordered moderate-value products recently are the “Recent Buyers” and those who have only made a purchase of low-value products a long time ago are the “Inactive Customers”.
+- Those who have made a purchase recently that is also one of high-value are the “VIP Shoppers”, those who made a purchase of high-value but haven't purchased again recently are the “Past High Rollers”. Those who ordered moderate-value products recently are the “Potential Growth” and those who have only made a purchase of low-value products a long time ago are the “Inactive Customers”.
 - Low to moderate-value customers are about 60% of the customer base but only account for 25% of sales .“VIP Shoppers” and “Past High Rollers” on the other hand, take about 40% of the customer base but account for 75% of sales, these are the customers that the company needs to focus more with their marketing efforts.
 ### Customer Segments' Preferences
 ![](https://github.com/cdoge25/ecommerce-data-pipeline/blob/main/assets/dashboard/4.png)
 <!-- omit in toc -->
-#### "Inactive Customers" and "Recent Buyers"
+#### "Inactive Customers" and "Potential Growth"
 These 2 types of customers are not so different on their taste and behavior, they share some common characteristics:
 - They tend to make purchases during weekday afternoons.
 - The value of their orders are not substantial so they want to pay up quickly,
@@ -270,7 +270,7 @@ Looking at the figure, almost all the cities in this state are having a problem 
 - Organize campaigns during weekday afternoons since this is the time that customers are active the most.
 <!-- omit in toc -->
 #### Targeted marketing based on customer segments
-For the “Inactive Customers” and “Recent Buyers” groups:
+For the “Inactive Customers” and “Potential Growth” groups:
 - Consider boosting marketing efforts on bed-bath-table, beauty cosmetics, sports and leisure-related products.
 - Release vouchers that encourage installments in 3 months since this is their preferred duration to pay off an order.
 
